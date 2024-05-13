@@ -11,7 +11,7 @@ router.get('/:id', categorias.get)
 router.post('/', categorias.create)
 
 // PUT: api/categorias/5
-router.post('/:id', categorias.update)
+router.put('/:id', categorias.update)
 
 // DELETE: api/categorias/5
 router.delete('/:id', categorias.delete)

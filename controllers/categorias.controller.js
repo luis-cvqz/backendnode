@@ -44,7 +44,7 @@ self.update = async function (req, res) {
     try {
         let id = req.params.id
         let body = req.body
-        let data = await categoria.update(body, { where: {id: id} })
+        let data = await categoria.update(body, { where: { id: id } })
         if (data[0] === 0) {
             return res.status(404).send()
         } else {
