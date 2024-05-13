@@ -11,7 +11,7 @@ router.get('/:id', peliculas.get)
 router.post('/', peliculas.create)
 
 // PUT: api/peliculas/5
-router.post('/:id', peliculas.update)
+router.put('/:id', peliculas.update)
 
 // DELETE: api/peliculas/5
 router.delete('/:id', peliculas.delete)
