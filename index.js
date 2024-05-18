@@ -27,6 +27,11 @@ app.use("/api/usuarios", require('./routes/usuarios.routes'))
 app.use("/api/roles", require('./routes/roles.routes'))
 app.get('*', (req, res) => { res.status(404).send() })
 
+// manejo de errores
+const errorlogger = require('./middlewares/errorlogger.middleware')
+const errrohandler = require('./middlewares/errorhandler.middleware')
+app.use(errorlogger, errrohandler)
+
 app.listen(process.env.SERVER_PORT, () => {
     console.log(`Aplicación de ejemplo escuchando en el puerto ${process.env.SERVER_PORT}`)
 })
