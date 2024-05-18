@@ -1,5 +1,5 @@
-const router = require('express')
-const router = require('../controllers/roles.controller')
+const router = require('express').Router()
+const roles = require('../controllers/roles.controller')
 
 // GET: api/auth
 router.get('/', roles.getAll)
