@@ -23,6 +23,8 @@ app.use(cors(corsOptions))
 // routes
 app.use("/api/categorias", require('./routes/categorias.routes'))
 app.use("/api/peliculas", require('./routes/peliculas.routes'))
+app.use("/api/usuarios", require('./routes/usuarios.routes'))
+app.use("/api/roles", require('./routes/roles.routes'))
 app.get('*', (req, res) => { res.status(404).send() })
 
 app.listen(process.env.SERVER_PORT, () => {
