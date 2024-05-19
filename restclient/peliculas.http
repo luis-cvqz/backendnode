@@ -2,7 +2,15 @@ GET http://localhost:3000/api/peliculas
 
 ###
 
-GET http://localhost:3000/api/peliculas?s=Dun
+GET http://localhost:3000/api/peliculas?titulo=Dun
+
+###
+
+GET http://localhost:3000/api/peliculas?anio=2024
+
+###
+
+GET http://localhost:3000/api/peliculas?titulo=Dun&anio=2000
 
 ###
 
@@ -19,6 +27,45 @@ Content-Type: application/json
     "anio": 2024,
     "poster": "Sin poster",
     "categorias": [2, 3]
+}
+
+###
+
+POST http://localhost:3000/api/peliculas
+Content-Type: application/json
+
+{
+    "titulo": "Película de prueba 1",
+    "sinopsis": "Sinopsis de prueba 1.",
+    "anio": 2022,
+    "poster": "Sin poster",
+    "categorias": [5, 3]
+}
+
+###
+
+POST http://localhost:3000/api/peliculas
+Content-Type: application/json
+
+{
+    "titulo": "Película de prueba 2",
+    "sinopsis": "Sinopsis de prueba 2.",
+    "anio": 2021,
+    "poster": "Sin poster",
+    "categorias": [4, 7]
+}
+
+###
+
+POST http://localhost:3000/api/peliculas
+Content-Type: application/json
+
+{
+    "titulo": "Película de prueba 3",
+    "sinopsis": "Sinopsis de prueba 3.",
+    "anio": 2023,
+    "poster": "Sin poster",
+    "categorias": [6, 3]
 }
 
 ###

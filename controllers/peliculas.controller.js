@@ -6,12 +6,17 @@ let self = {}
 // GET: api/peliculas
 self.getAll = async function (req, res) {
     try {
-        const { s } = req.query
+        const { titulo, anio } = req.query
 
         const filters = {}
-        if (s) {
+        if (titulo) {
             filters.titulo = {
-                [Op.like]: `%${s}%`
+                [Op.like]: `%${titulo}%`
+            }
+        }
+        if (anio) {
+            filters.anio = {
+                [Op.eq]: anio
             }
         }
 
