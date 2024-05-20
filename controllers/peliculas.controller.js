@@ -26,12 +26,16 @@ self.getAll = async function (req, res) {
             include: {
                 model: categoria,
                 as: 'categorias',
-                attributes: [['id', 'categoriId'], 'nombre', 'protegida'],
+                attributes: [['id', 'categoriaId'], 'nombre', 'protegida'],
                 through: { attributes: [] }
             },
             subQuery: false
         })
-        return res.status(200).json(data)
+
+        if (data)
+            return res.status(200).json(data)
+        else
+            return res.status(404).send()
     } catch (error) {
         return res.status(500).json(error)
     }
@@ -110,7 +114,7 @@ self.delete = async function (req, res) {
     }
 }
 
-// POST: api/peliculas/categoria
+// POST: api/peliculas/:id/categoria
 self.asignaCategoria = async function (req, res) {
     try {
         let itemToAssign = await categoria.findByPk(req.body.categoriaid)

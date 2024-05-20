@@ -56,7 +56,7 @@ self.create = async function(req, res) {
             id: data.id,
             email: data.email,
             nombre: data.nombre,
-            rolid: rolusuario.nombre
+            rol: rolusuario.nombre
         })
 
     } catch (error) {
@@ -69,7 +69,7 @@ self.update = async function(req, res) {
     try {
         const email = req.params.email
         const rolusuario = await rol.findOne({ where: { nombre: req.body.rol } })
-        req.body.rold = rolusuario.id
+        req.body.rolid = rolusuario.id
 
         const data = await usuario.update(req.body, {
             where: { email: email }
@@ -78,7 +78,7 @@ self.update = async function(req, res) {
         if (data[0] === 0) 
             return res.status(404).send()
         else
-            return res.status(204).send(0)
+            return res.status(204).send()
     } catch (error) {
         return res.status(500).json(error)
     }
