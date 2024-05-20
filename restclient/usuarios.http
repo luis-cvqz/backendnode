@@ -25,3 +25,24 @@ Content-Type: application/json
 ### 
 
 DELETE http://localhost:3000/api/usuarios/john.doe@email.com
+
+###
+
+POST http://localhost:3000/api/auth
+Content-Type: application/json
+
+{
+    "email": "gvera@uv.mx",
+    "password": "patito"
+}
+
+###
+
+POST http://localhost:3000/api/auth
+Content-Type: 
+
+{
+    "email": "patito@uv.mx",
+    "password": "patito"
+
+}
