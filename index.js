@@ -25,6 +25,7 @@ app.use("/api/categorias", require('./routes/categorias.routes'))
 app.use("/api/peliculas", require('./routes/peliculas.routes'))
 app.use("/api/usuarios", require('./routes/usuarios.routes'))
 app.use("/api/roles", require('./routes/roles.routes'))
+app.use("/api/auth", require('./routes/auth.routes'))
 app.get('*', (req, res) => { res.status(404).send() })
 
 // manejo de errores
