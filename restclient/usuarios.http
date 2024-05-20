@@ -1,0 +1,27 @@
+GET http://localhost:3000/api/usuarios
+
+### 
+
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+{
+    "email": "john.doe@email.com",
+    "password": "passwordSeguro",
+    "nombre": "John Doe",
+    "rol": "Usuario"
+}
+
+###
+
+PUT http://localhost:3000/api/usuarios/john.doe@email.com
+Content-Type: application/json
+
+{   
+    "nombre": "John Doe Editado",
+    "rol": "Usuario"
+}
+
+### 
+
+DELETE http://localhost:3000/api/usuarios/john.doe@email.com
