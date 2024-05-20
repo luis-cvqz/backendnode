@@ -14,7 +14,7 @@ GET http://localhost:3000/api/peliculas?titulo=Dun&anio=2000
 
 ###
 
-GET http://localhost:3000/api/peliculas/2
+GET http://localhost:3000/api/peliculas/16
 
 ###
 
@@ -80,6 +80,15 @@ Content-Type: application/json
     "anio": 2024,
     "poster": "http://m.media-amazon.com/images/M/MV5BMGI4NTNlODItMGJlZi00OTIwLTlkM2ItMWFkZjJhZDIzMDc3XkEyXkFqcGdeQXVyMTEyNzQ1MTk0._V1_SX300.jpg",
     "categorias": [1, 2, 3]
+}
+
+###
+
+POST http://localhost:3000/api/peliculas/16/categoria
+Content-Type: application/json
+
+{
+    "categoriaid": 1
 }
 
 ###
