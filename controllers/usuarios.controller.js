@@ -1,13 +1,25 @@
 const { usuario, rol, Sequelize } = require('../models')
+const Op = Sequelize.Op
 const bcrypt = require('bcrypt')
 const crypto = require('crypto')
 
 let self = {}
 
-// GET: api/usuarios
+// GET: api/usuarios?nombrerol={rol}
 self.getAll = async function(req, res) {
     try {
+        const { nombrerol } = req.query
+
+        const rolusuario = await rol.findOne({ where: { nombre: nombrerol } })
+
+        const filters = {}
+        if (rol) {
+            filters.rolid = {
+                [Op.eq]: rolusuario.id
+            }
+        }
         const data = await usuario.findAll({
+            where: filters,
             raw: true,
             attributes: ['id', 'email', 'nombre', [Sequelize.col('rol.nombre'), 'rol']],
             include: { model: rol, attributes: [] }
@@ -15,7 +27,7 @@ self.getAll = async function(req, res) {
 
         return res.status(200).json(data)
     } catch (error) {
-        return res.status(500).json(error)
+        return res.status(500).json({error: error.message})
     }
 }
 
