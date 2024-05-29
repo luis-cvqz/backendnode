@@ -8,18 +8,8 @@ let self = {}
 // GET: api/usuarios?nombrerol={rol}
 self.getAll = async function(req, res) {
     try {
-        const { nombrerol } = req.query
 
-        const rolusuario = await rol.findOne({ where: { nombre: nombrerol } })
-
-        const filters = {}
-        if (rol) {
-            filters.rolid = {
-                [Op.eq]: rolusuario.id
-            }
-        }
         const data = await usuario.findAll({
-            where: filters,
             raw: true,
             attributes: ['id', 'email', 'nombre', [Sequelize.col('rol.nombre'), 'rol']],
             include: { model: rol, attributes: [] }
